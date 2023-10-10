@@ -6,7 +6,6 @@ const adminRouter = require("./routes/admin");
 const authRouter = require("./routes/auth");
 const productRouter = require("./routes/product");
 const userRouter = require("./routes/user");
-app.get('/test',(req,res)=>{res.json({msg:'hi app is running'})})
 // INIT
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -18,6 +17,7 @@ app.use(authRouter);
 app.use(adminRouter);
 app.use(productRouter);
 app.use(userRouter);
+app.get('/test',(req,res)=>{res.json({msg:'hi app is running'})})
 
 // Connections
 mongoose
