@@ -11,6 +11,16 @@ productRouter.get("/api/products/", auth, async (req, res) => {
     res.status(500).json({ error: e.message });
   }
 });
+//all products
+
+productRouter.get("/api/allproducts/", async (req, res) => {
+  try {
+    const products = await Product.find();
+    res.json(products);
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
 
 // create a get request to search products and get them
 // /api/products/search/i
@@ -52,11 +62,11 @@ productRouter.post("/api/rate-product", auth, async (req, res) => {
   }
 });
 
-productRouter.get("/api/deal-of-day", auth, async (req, res) => {
+productRouter.get("/api/deal-of-day",  async (req, res) => {
   try {
-    let products = await Product.find({});
+    let allproducts = await Product.find({});
 
-    products = products.sort((a, b) => {
+    let products = allproducts.sort((a, b) => {
       let aSum = 0;
       let bSum = 0;
 
@@ -70,7 +80,7 @@ productRouter.get("/api/deal-of-day", auth, async (req, res) => {
       return aSum < bSum ? 1 : -1;
     });
 
-    res.json(products[0]);
+    res.json(allproducts);
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
