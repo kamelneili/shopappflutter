@@ -78,11 +78,11 @@ adminRouter.get("/admin/analytics", admin, async (req, res) => {
       }
     }
     // CATEGORY WISE ORDER FETCHING
-    let mobileEarnings = await fetchCategoryWiseProduct("Mobiles");
-    let essentialEarnings = await fetchCategoryWiseProduct("Essentials");
-    let applianceEarnings = await fetchCategoryWiseProduct("Appliances");
-    let booksEarnings = await fetchCategoryWiseProduct("Books");
-    let fashionEarnings = await fetchCategoryWiseProduct("Fashion");
+    let mobileEarnings = await fetchCategoryWiseProduct("Margoum");
+    let essentialEarnings = await fetchCategoryWiseProduct("Couffin & Chapeau");
+    let applianceEarnings = await fetchCategoryWiseProduct("Bkhour");
+    let booksEarnings = await fetchCategoryWiseProduct("Divert");
+    let fashionEarnings = await fetchCategoryWiseProduct("Produit Halfa");
 
     let earnings = {
       totalEarnings,
